@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2; 
+        }
+
+        tr:hover {
+            background-color: #ddd; 
+        }
+
+        .actions {
+            text-align: center;
+        }
+
+        .actions a {
+            padding: 5px 10px;
+            background-color: #007bff; 
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .actions a:hover {
+            background-color: #0056b3; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Medical</h1>
+    <table border="1">
+        <tr>
+            <th>Medical ID</th>
+            <th>Medical Name</th>
+            <th>Description</th>
+            <th>Medical Price</th>
+            <th colspan="2" class="actions">Actions</th>
+        </tr>
+        
+        {% for product in product_list %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.medical_name }}</td> 
+                <td>{{ product.description }}</td>
+                <td>{{ product.medical_price }}</td>
+                <td class="actions"><a href="{% url 'update' product.id %}">Edit</a></td>
+                <td class="actions"><a href="{% url 'delete' product.id %}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

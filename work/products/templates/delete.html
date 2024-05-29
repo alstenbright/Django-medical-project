@@ -1,0 +1,39 @@
+{% extends 'layout/app-layout.html' %}
+{% block 'content' %}
+<style>
+    .delete-form {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        max-width: 400px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .delete-form p {
+        margin-bottom: 20px;
+    }
+
+    .delete-form input[type="submit"] {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .delete-form input[type="submit"]:hover {
+        background-color: #c82333;
+    }
+</style>
+
+<div class="delete-form">
+    <form method="post" action="">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{product.name}}"?</p>
+        <input type="submit" value="Confirm">
+    </form>
+</div>
+{% endblock %}

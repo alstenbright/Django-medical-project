@@ -1,0 +1,47 @@
+{% extends 'layout/app-layout.html' %}
+
+{% block 'content' %}
+  <style>
+    body {
+      background-color: #f0f0f0; /* Light gray background color */
+    }
+    form {
+      margin: 20px auto;
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff; /* White background color for the form */
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+      width: calc(100% - 22px); /* Adjusting for padding and border */
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #007bff; /* Blue button color */
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+  </style>
+
+  <h1>Create</h1>
+  <form action='' method='post'>
+    {% csrf_token %}
+    {{ form.as_div }}
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

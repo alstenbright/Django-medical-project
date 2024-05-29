@@ -1,0 +1,47 @@
+{% extends 'layout/app-layout.html' %}
+
+{% block 'content' %}
+  <style>
+    body {
+      background-color: #cfe7fc; /* Light blue background color */
+    }
+    form {
+      margin: 20px auto;
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff; /* White background color for the form */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: calc(100% - 22px); /* Adjusting for padding and border */
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff; /* Blue button color */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+  </style>
+
+  <h2>Sign Up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign Up</button>
+  </form>
+{% endblock %}

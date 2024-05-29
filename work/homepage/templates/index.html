@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="{% url 'signup' %}">Signup</a>
+        <a href="{% url 'login' %}">LogIn</a>
+        <a href="{% url 'logout' %}" >LogOut</a>
+        <a href="{% url 'create' %}">create</a>
+        <a href="{% url 'medicoretrieve' %}">medico Retrieve</a>
+    </nav>
+    <h1>Welcome</h1>
+</body>
+</html>
